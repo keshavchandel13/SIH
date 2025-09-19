@@ -42,11 +42,11 @@ export function DashboardHeader() {
 
           {/* Profile Dropdown */}
           <div className="flex items-center gap-2 cursor-pointer">
-            <ImageWithFallback
+            {/* <ImageWithFallback
               src="https://images.unsplash.com/photo-1659353888906-adb3e0041693?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmZW1hbGUlMjBheXVydmVkaWMlMjBkb2N0b3J8ZW58MXx8fHwxNzU4MzAxMzgxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
               alt="Dr. Priya Sharma"
               className="w-8 h-8 rounded-full object-cover"
-            />
+            /> */}
             <div className="hidden md:block text-left">
               <p className="text-sm font-medium">Dr. Priya Sharma</p>
               <p className="text-xs text-muted-foreground">Ayurvedic Practitioner</p>
