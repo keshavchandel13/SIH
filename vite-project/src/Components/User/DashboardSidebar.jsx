@@ -15,12 +15,13 @@ import {
 export function DashboardSidebar() {
   const mainNavItems = [
     { icon: FaHome, label: "Dashboard", active: true },
+    {icon:FaCreditCard, label:"Dietitian"},
     { icon: FaCalendarAlt, label: "Diet Schedule", badge: "3" },
     // { icon: FaUsers, label: "My Patients", count: "248" },
     { icon: FaComments, label: "Messages", badge: "5" },
     { icon: FaVideo, label: "Sessions", count: "12" },
     // { icon: FaChartBar, label: "Analytics" },
-    { icon: FaCreditCard, label: "Billing" }
+    { icon: FaCreditCard, label: "Billing" },
   ];
 
   const bottomNavItems = [
