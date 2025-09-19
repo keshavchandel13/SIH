@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar, FaChartLine, FaClock } from "react-icons/fa";
-
-import { DashboardHeader } from "./components/dashboard-header";
-import { DashboardSidebar } from "./components/dashboard-sidebar";
-import { StatCard } from "./components/stat-card";
-import { UpcomingAppointments } from "./components/upcoming-appointments";
-import { RecentPatients } from "./components/recent-patients";
-import { TodayMealsPanel } from "./components/today-meals-panel";
-import { ProgressWidget } from "./components/ProgressWidget";
-import { MealDetailModal } from "./components/MealDetailModal";
+import { DashboardHeader } from "./DashboardHeader";
+import { DashboardSidebar } from "./DashboardSidebar";
+import { StatCard } from "./StatCard";
+import { UpcomingAppointments } from "./UpcomingAppointments";
+import { RecentPatients } from "./RecentPatients";
+import { TodayMealsPanel } from "./TodayMealsPanel";
+import { ProgressWidget } from "./ProgressWidget";
+import { MealDetailModal } from "./MealDetailModal";
 
 // Mock data
 const todaysMeals = [
