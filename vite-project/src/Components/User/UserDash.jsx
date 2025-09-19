@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar, FaChartLine, FaClock } from "react-icons/fa";
 import { DashboardHeader } from "./DashboardHeader";
@@ -7,7 +8,7 @@ import { UpcomingAppointments } from "./UpcomingAppointments";
 import { RecentPatients } from "./RecentPatients";
 import { TodayMealsPanel } from "./TodayMealsPanel";
 import { ProgressWidget } from "./ProgressWidget";
-import { MealDetailModal } from "./MealDetailModal";
+// import { MealDetailModal } from "./MealDetailModal";
 
 // Mock data
 const todaysMeals = [
@@ -178,11 +179,11 @@ export default function App() {
       </div>
 
       {/* Meal Detail Modal */}
-      <MealDetailModal
+      {/* <MealDetailModal
         isOpen={!!selectedMeal}
         onClose={() => setSelectedMeal(null)}
         meal={selectedMealData}
-      />
+      /> */}
     </div>
   );
 }
