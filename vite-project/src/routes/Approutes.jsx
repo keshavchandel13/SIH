@@ -6,6 +6,7 @@ import Dietitian from "../Pages/Dietitian";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import User from "../Pages/User";
+import BookAppointment from "../Components/User/BookAppointment";
 
 export default function AppRoutes() {
   return (
@@ -22,6 +23,9 @@ export default function AppRoutes() {
         <Route path="/doc" element={<Dietitian />} />
         <Route path="/user" element={<User />} />
 
+        {/* User routes */}
+        <Route path="/book" element={<BookAppointment />} />
+        
 
         {/* Fallback route */}
         <Route path="*" element={<h1 className="text-center mt-10">404 Page Not Found</h1>} />

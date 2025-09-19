@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom"; // 👈 import Link
 import { 
   FaHome, 
   FaCalendarAlt, 
@@ -13,20 +14,20 @@ import {
 } from "react-icons/fa";
 
 export function DashboardSidebar() {
+  const location = useLocation();
+
   const mainNavItems = [
-    { icon: FaHome, label: "Dashboard", active: true },
-    {icon:FaCreditCard, label:"Dietitian"},
-    { icon: FaCalendarAlt, label: "Diet Schedule", badge: "3" },
-    // { icon: FaUsers, label: "My Patients", count: "248" },
-    { icon: FaComments, label: "Messages", badge: "5" },
-    { icon: FaVideo, label: "Sessions", count: "12" },
-    // { icon: FaChartBar, label: "Analytics" },
-    { icon: FaCreditCard, label: "Billing" },
+    { icon: FaHome, label: "Dashboard", path: "/dashboard" },
+    { icon: FaCreditCard, label: "Dietitian", path: "/book" },
+    { icon: FaCalendarAlt, label: "Diet Schedule", path: "/schedule", badge: "3" },
+    { icon: FaComments, label: "Messages", path: "/messages", badge: "5" },
+    { icon: FaVideo, label: "Sessions", path: "/sessions", count: "12" },
+    { icon: FaCreditCard, label: "Billing", path: "/billing" },
   ];
 
   const bottomNavItems = [
-    { icon: FaCog, label: "Settings" },
-    { icon: FaSignOutAlt, label: "Sign Out" }
+    { icon: FaCog, label: "Settings", path: "/settings" },
+    { icon: FaSignOutAlt, label: "Sign Out", path: "/logout" }
   ];
 
   return (
@@ -49,10 +50,11 @@ export function DashboardSidebar() {
       {/* Main Navigation */}
       <nav className="flex-1 p-4 space-y-1">
         {mainNavItems.map((item, index) => (
-          <button
+          <Link
+            to={item.path}
             key={index}
             className={`w-full flex items-center justify-start h-10 px-3 rounded-md transition ${
-              item.active
+              location.pathname === item.path
                 ? "bg-secondary text-secondary-foreground"
                 : "hover:bg-muted text-foreground"
             }`}
@@ -67,7 +69,7 @@ export function DashboardSidebar() {
             {item.count && (
               <span className="text-xs text-muted-foreground">{item.count}</span>
             )}
-          </button>
+          </Link>
         ))}
       </nav>
 
@@ -75,13 +77,14 @@ export function DashboardSidebar() {
       <div className="p-4 border-t">
         <div className="space-y-1">
           {bottomNavItems.map((item, index) => (
-            <button
+            <Link
+              to={item.path}
               key={index}
               className="w-full flex items-center justify-start h-10 px-3 rounded-md hover:bg-muted transition"
             >
               <item.icon className="w-4 h-4 mr-3" />
               {item.label}
-            </button>
+            </Link>
           ))}
         </div>
       </div>
