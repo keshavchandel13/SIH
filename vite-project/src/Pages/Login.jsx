@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { loginUser } from "../api/auth"; // 👈 import API
+import { useNavigate } from "react-router-dom"; // 👈 for navigation
+import { loginUser } from "../api/auth";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -11,30 +13,30 @@ export default function Login() {
       const res = await loginUser(loginData.email, loginData.password);
       console.log("Login success:", res.data);
 
-      // ✅ Store token for authenticated requests
-      localStorage.setItem("token", res.data.token);
+      // ✅ Store token & role
+      localStorage.setItem("token", res.data.user.token);
+      localStorage.setItem("role", res.data.user.role);
+      localStorage.setItem("user", res.data.user.role);
       alert("Login successful!");
+
+      // ✅ Redirect based on role
+      if (res.data.user.role === "Doctor") {
+        navigate("/doc");
+      } else if (res.data.user.role === "Patient") {
+        navigate("/user");
+      } else {
+        navigate("/"); // fallback
+      }
     } catch (err) {
       alert(err.response?.data?.message || "Login failed");
     }
   };
 
-
-   
-
-
-
-
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 p-6">
-      
       {/* 🌿 Ayurved Logo */}
       <div className="flex flex-col items-center mb-8">
-        <img
-          src="/finlog.jpg" // <-- replace with your actual logo path in public/
-          alt="Ayurved Logo"
-          className="h-16 w-16 mb-3"
-        />
+        <img src="/finlog.jpg" alt="Ayurved Logo" className="h-16 w-16 mb-3" />
         <h1 className="text-3xl font-bold text-emerald-700">AyurDiet</h1>
         <p className="text-gray-600 text-center mt-1">
           Ancient Wisdom for Modern Wellness
@@ -86,7 +88,6 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Extra Links */}
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
             Don’t have an account?{" "}
