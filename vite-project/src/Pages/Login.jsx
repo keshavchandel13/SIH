@@ -15,7 +15,7 @@ export default function Login() {
       {/* 🌿 Ayurved Logo */}
       <div className="flex flex-col items-center mb-8">
         <img
-          src="/logo.png" // <-- replace with your actual logo path in public/
+          src="/finlog.jpg" // <-- replace with your actual logo path in public/
           alt="Ayurved Logo"
           className="h-16 w-16 mb-3"
         />
