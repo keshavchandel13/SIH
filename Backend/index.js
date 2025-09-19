@@ -6,6 +6,9 @@ const connectDB = require('./config/db');
 const app = express();
 const port = process.env.PORT || 5000;
 
+// Imports 
+const authRoutes = require("./routes/authRoutes");
+
 // Middleware to parse JSON
 app.use(express.json());
 
@@ -17,14 +20,13 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+// routes
+app.use("/api/auth", authRoutes);
+
+
 // Connect to database
 connectDB();
 //  Routes 
-
-
-
-
-
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
