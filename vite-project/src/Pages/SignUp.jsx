@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { signupUser } from "../api/auth"; // 👈 import API
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -8,9 +9,16 @@ export default function Signup() {
     password: "",
   });
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
-    console.log("Signup:", signupData);
+    try {
+      const res = await signupUser(signupData);
+      console.log("Signup success:", res.data);
+
+      alert("Account created successfully!");
+    } catch (err) {
+      alert(err.response?.data?.message || "Signup failed");
+    }
   };
 
   return (

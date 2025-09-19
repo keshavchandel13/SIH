@@ -1,13 +1,29 @@
 import React, { useState } from "react";
+import { loginUser } from "../api/auth"; // 👈 import API
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [loginData, setLoginData] = useState({ email: "", password: "" });
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Login:", loginData);
+    try {
+      const res = await loginUser(loginData.email, loginData.password);
+      console.log("Login success:", res.data);
+
+      // ✅ Store token for authenticated requests
+      localStorage.setItem("token", res.data.token);
+      alert("Login successful!");
+    } catch (err) {
+      alert(err.response?.data?.message || "Login failed");
+    }
   };
+
+
+   
+
+
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 p-6">
