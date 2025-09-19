@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Dietitian";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
+import User from "../Pages/User";
 
 export default function AppRoutes() {
   return (
@@ -19,6 +20,7 @@ export default function AppRoutes() {
 
         {/* Dashboard (after login) */}
         <Route path="/home" element={<Home />} />
+        <Route path="/user" element={<User />} />
 
         {/* Fallback route */}
         <Route path="*" element={<h1 className="text-center mt-10">404 Page Not Found</h1>} />
