@@ -5,9 +5,7 @@ import DietitianDash from '../Components/Dietian/DietitianDash'
 
 export default function Home() {
   return (
-    <div><Sidebar/>
-    
-    <Navbar/>
+    <div>
     <DietitianDash/>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardUser from "./DashboardUser";
 import { DashboardSidebar } from "./DashboardSidebar";    
-import { StatCard } from "./StatCard";
+import StatCard from './StatCard'
 import { UpcomingAppointments } from "./UpcomingAppointments";
 import { RecentPatients } from "./RecentPatients";
 

@@ -51,40 +51,41 @@ const doshaColors = {
 
 export function RecentPatients() {
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <UserPlus className="h-5 w-5 text-primary" />
-          Recent Patients
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          {recentPatients.map((patient) => (
-            <div key={patient.id} className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Avatar className="h-10 w-10">
-                  <AvatarImage src={patient.avatar} alt={patient.name} />
-                  <AvatarFallback>{patient.initials}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-medium">{patient.name}</p>
-                  <p className="text-sm text-muted-foreground">{patient.condition}</p>
-                </div>
-              </div>
-              <div className="text-right">
-                <Badge 
-                  variant="secondary" 
-                  className={doshaColors[patient.dosha]}
-                >
-                  {patient.dosha}
-                </Badge>
-                <p className="text-xs text-muted-foreground mt-1">{patient.joinDate}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+    <></>
+    // <Card>
+    //   <CardHeader>
+    //     <CardTitle className="flex items-center gap-2">
+    //       <UserPlus className="h-5 w-5 text-primary" />
+    //       Recent Patients
+    //     </CardTitle>
+    //   </CardHeader>
+    //   <CardContent>
+    //     <div className="space-y-4">
+    //       {recentPatients.map((patient) => (
+    //         <div key={patient.id} className="flex items-center justify-between">
+    //           <div className="flex items-center gap-3">
+    //             <Avatar className="h-10 w-10">
+    //               <AvatarImage src={patient.avatar} alt={patient.name} />
+    //               <AvatarFallback>{patient.initials}</AvatarFallback>
+    //             </Avatar>
+    //             <div>
+    //               <p className="font-medium">{patient.name}</p>
+    //               <p className="text-sm text-muted-foreground">{patient.condition}</p>
+    //             </div>
+    //           </div>
+    //           <div className="text-right">
+    //             <Badge 
+    //               variant="secondary" 
+    //               className={doshaColors[patient.dosha]}
+    //             >
+    //               {patient.dosha}
+    //             </Badge>
+    //             <p className="text-xs text-muted-foreground mt-1">{patient.joinDate}</p>
+    //           </div>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </CardContent>
+    // </Card>
   );
 }
