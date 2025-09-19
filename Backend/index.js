@@ -30,3 +30,13 @@ connectDB();
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });
+
+
+//Ai diet
+const dietRoutes = require("./routes/dietroutes");
+
+// existing routes
+app.use("/api/auth", authRoutes);
+
+// new Gemini diet route
+app.use("/api/diet", dietRoutes);
