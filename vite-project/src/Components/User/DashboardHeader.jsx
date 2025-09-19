@@ -1,3 +1,4 @@
+import React from "react";
 import { FaBell, FaSearch, FaChevronDown } from "react-icons/fa";
 // import { ImageWithFallback } from "./figma/ImageWithFallback";
 
