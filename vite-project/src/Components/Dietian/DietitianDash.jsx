@@ -3,14 +3,14 @@ import DashboardUser from "./DashboardUser";
 import { DashboardSidebar } from "./DashboardSidebar";    
 import StatCard from './StatCard'
 import { UpcomingAppointments } from "./UpcomingAppointments";
-import { RecentPatients } from "./RecentPatients";
 
-// React Icons (FontAwesome set as example)
+
+// React Icons
 import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar } from "react-icons/fa";
 
 export default function DietitianDash() {
   return (
-    <div className="min-h-screen bg-background flex">
+    <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
       <DashboardSidebar />
 
@@ -19,25 +19,27 @@ export default function DietitianDash() {
         {/* Header */}
         <DashboardUser />
 
-        {/* Main Dashboard Content */}
-        <main className="flex-1 p-6 space-y-6">
+        {/* Main Dashboard */}
+        <main className="flex-1 p-6 space-y-8">
           {/* Welcome Section */}
           <div>
-            <h1 className="text-3xl font-bold mb-2">Welcome back, Dr. Sharma!</h1>
-            <p className="text-muted-foreground">
-              Here's what's happening with your patients today.
+            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">
+              Welcome back, Dr. Sharma!
+            </h1>
+            <p className="text-gray-600 text-lg">
+              Here's a quick overview of your patients and diet plans today.
             </p>
           </div>
 
-          {/* Statistics Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatCard
               title="Total Patients"
               value="248"
               change="+12 this month"
               changeType="positive"
               icon={FaUsers}
-              iconColor="text-primary"
+              iconColor="bg-blue-100 text-blue-600"
             />
             <StatCard
               title="Active Diet Plans"
@@ -45,7 +47,7 @@ export default function DietitianDash() {
               change="+5 new plans"
               changeType="positive"
               icon={FaFileAlt}
-              iconColor="text-accent"
+              iconColor="bg-purple-100 text-purple-600"
             />
             <StatCard
               title="Appointments Today"
@@ -53,7 +55,7 @@ export default function DietitianDash() {
               change="2 completed"
               changeType="positive"
               icon={FaCalendarAlt}
-              iconColor="text-blue-600"
+              iconColor="bg-green-100 text-green-600"
             />
             <StatCard
               title="Nutrient Reports"
@@ -61,14 +63,18 @@ export default function DietitianDash() {
               change="+7 pending"
               changeType="positive"
               icon={FaChartBar}
-              iconColor="text-green-600"
+              iconColor="bg-yellow-100 text-yellow-600"
             />
           </div>
 
           {/* Bottom Panels */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <UpcomingAppointments />
-            <RecentPatients />
+            <div className="bg-white rounded-2xl shadow-lg p-6 overflow-auto">
+              <UpcomingAppointments />
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-6 overflow-auto">
+              <UpcomingAppointments/>
+            </div>
           </div>
         </main>
       </div>
