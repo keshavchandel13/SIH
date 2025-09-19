@@ -1,3 +1,4 @@
+import React from "react";
 export function StatCard({ title, value, change, changeType, icon: Icon, iconColor = "text-primary" }) {
   const changeColor =
     changeType === "positive"

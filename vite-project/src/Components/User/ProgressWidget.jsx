@@ -1,3 +1,4 @@
+import React from "react";
 import { FaArrowUp } from "react-icons/fa";
 
 export function ProgressWidget() {

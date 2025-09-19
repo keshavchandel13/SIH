@@ -16,10 +16,10 @@ export function DashboardSidebar() {
   const mainNavItems = [
     { icon: FaHome, label: "Dashboard", active: true },
     { icon: FaCalendarAlt, label: "Diet Schedule", badge: "3" },
-    { icon: FaUsers, label: "My Patients", count: "248" },
+    // { icon: FaUsers, label: "My Patients", count: "248" },
     { icon: FaComments, label: "Messages", badge: "5" },
     { icon: FaVideo, label: "Sessions", count: "12" },
-    { icon: FaChartBar, label: "Analytics" },
+    // { icon: FaChartBar, label: "Analytics" },
     { icon: FaCreditCard, label: "Billing" }
   ];
 
@@ -37,7 +37,7 @@ export function DashboardSidebar() {
             <FaLeaf className="w-5 h-5 text-primary-foreground" />
           </div>
           <div>
-            <h2 className="font-serif text-lg">AyurZen</h2>
+            <h2 className="font-serif text-lg">AyurDiet</h2>
             <p className="text-xs text-muted-foreground">Wellness Platform</p>
           </div>
         </div>

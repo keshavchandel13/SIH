@@ -111,24 +111,24 @@ export default function App() {
           {/* Statistics Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatCard
-              title="Active Patients"
-              value="248"
-              change="+12 this month"
+              title="Attended Sessions"
+              value="24"
+              change="+8 this month"
               changeType="positive"
               icon={FaUsers}
               iconColor="text-primary"
             />
             <StatCard
-              title="Personalized Plans"
-              value="89"
-              change="+5 new plans"
+              title="Personalized Plan"
+              value="7"
+              change="+1 new plans"
               changeType="positive"
               icon={FaFileAlt}
               iconColor="text-secondary"
             />
             <StatCard
-              title="Appointments Today"
-              value="8"
+              title="Monthly Appointments"
+              value="4"
               change="2 completed"
               changeType="positive"
               icon={FaCalendarAlt}

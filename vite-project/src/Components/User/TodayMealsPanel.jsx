@@ -1,3 +1,4 @@
+import React from "react";
 import { FaCalendarAlt } from "react-icons/fa";
 // import { MealCard } from "./MealCard";
 
@@ -21,15 +22,15 @@ export function TodayMealsPanel({ meals, onMealClick }) {
       </div>
 
       {/* Meal Cards */}
-      <div className="space-y-3">
+      {/* <div className="space-y-3">
         {meals.map((meal) => (
           <MealCard
             key={meal.id}
             meal={meal}
             onClick={() => onMealClick(meal.id)}
           />
-        ))}
-      </div>
+        ))} */}
+      {/* </div> */}
     </div>
   );
 }

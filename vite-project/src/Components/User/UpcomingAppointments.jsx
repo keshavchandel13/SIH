@@ -1,3 +1,4 @@
+import React from "react";
 import { FaClock, FaVideo, FaComment } from "react-icons/fa";
 // import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -50,11 +51,11 @@ export function UpcomingAppointments() {
             key={appointment.id}
             className="flex items-center gap-3 p-3 rounded-lg border"
           >
-            <ImageWithFallback
+            {/* <ImageWithFallback
               src={appointment.patientImage}
               alt={appointment.patientName}
               className="w-10 h-10 rounded-full object-cover"
-            />
+            /> */}
 
             <div className="flex-1">
               <div className="flex items-center gap-2">

@@ -48,8 +48,8 @@ export function DashboardHeader() {
               className="w-8 h-8 rounded-full object-cover"
             /> */}
             <div className="hidden md:block text-left">
-              <p className="text-sm font-medium">Dr. Priya Sharma</p>
-              <p className="text-xs text-muted-foreground">Ayurvedic Practitioner</p>
+              <p className="text-sm font-medium">Shivam Sharma</p>
+              <p className="text-xs text-muted-foreground">Cricketer</p>
             </div>
             <FaChevronDown className="w-4 h-4 text-muted-foreground hidden md:block" />
           </div>

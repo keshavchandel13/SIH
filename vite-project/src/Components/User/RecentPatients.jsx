@@ -1,3 +1,4 @@
+import React from "react";
 import { FaArrowUp, FaArrowDown, FaComment } from "react-icons/fa";
 // import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -67,11 +68,11 @@ export function RecentPatients() {
             className="flex items-center gap-3 p-3 rounded-lg border"
           >
             <div className="relative">
-              <ImageWithFallback
+              {/* <ImageWithFallback
                 src={patient.image}
                 alt={patient.name}
                 className="w-10 h-10 rounded-full object-cover"
-              />
+              /> */}
               {patient.hasUnreadMessages && (
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-600 rounded-full flex items-center justify-center">
                   <FaComment className="w-2 h-2 text-white" />
