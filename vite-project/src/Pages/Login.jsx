@@ -19,7 +19,7 @@ export default function Login() {
           alt="Ayurved Logo"
           className="h-16 w-16 mb-3"
         />
-        <h1 className="text-3xl font-bold text-emerald-700">Ayurved Portal</h1>
+        <h1 className="text-3xl font-bold text-emerald-700">AyurDiet</h1>
         <p className="text-gray-600 text-center mt-1">
           Ancient Wisdom for Modern Wellness
         </p>

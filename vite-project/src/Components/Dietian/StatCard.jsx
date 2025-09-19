@@ -1,4 +1,5 @@
 import React from "react";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 
 export default function StatCard({ 
   title, 
@@ -6,29 +7,36 @@ export default function StatCard({
   change, 
   changeType, 
   icon: Icon,
-  iconColor = "text-blue-500"
+  iconColor = "bg-blue-100 text-blue-600"
 }) {
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-4 hover:shadow-md transition-shadow">
+    <div className="bg-white rounded-2xl shadow-lg p-5 hover:shadow-xl transition transform hover:-translate-y-1">
       {/* Header */}
-      <div className="flex flex-row items-center justify-between pb-2">
-        <h3 className="text-sm font-medium text-gray-500">{title}</h3>
-        {Icon && <Icon className={`h-5 w-5 ${iconColor}`} />}
-      </div>
-
-      {/* Content */}
-      <div>
-        <div className="text-2xl font-bold">{value}</div>
-        {change && (
-          <p
-            className={`text-xs mt-1 ${
-              changeType === "positive" ? "text-green-600" : "text-red-600"
-            }`}
-          >
-            {change}
-          </p>
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-sm font-semibold text-gray-500">{title}</h3>
+        {Icon && (
+          <div className={`p-2 rounded-full ${iconColor} flex items-center justify-center`}>
+            <Icon className="h-5 w-5" />
+          </div>
         )}
       </div>
+
+      {/* Value */}
+      <div className="text-3xl font-bold text-gray-800">{value}</div>
+
+      {/* Change */}
+      {change && (
+        <div className="flex items-center mt-2 text-sm font-medium">
+          {changeType === "positive" ? (
+            <FaArrowUp className="text-green-600 mr-1" />
+          ) : (
+            <FaArrowDown className="text-red-600 mr-1" />
+          )}
+          <span className={changeType === "positive" ? "text-green-600" : "text-red-600"}>
+            {change}
+          </span>
+        </div>
+      )}
     </div>
   );
 }
