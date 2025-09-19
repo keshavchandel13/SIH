@@ -1,13 +1,14 @@
-import { DashboardHeader } from "./components/dashboard-header";
-import { DashboardSidebar } from "./components/dashboard-sidebar";
-import { StatCard } from "./components/stat-card";
-import { UpcomingAppointments } from "./components/upcoming-appointments";
-import { RecentPatients } from "./components/recent-patients";
+import React from "react";
+import DashboardUser from "./DashboardUser";
+import { DashboardSidebar } from "./DashboardSidebar";    
+import { StatCard } from "./StatCard";
+import { UpcomingAppointments } from "./UpcomingAppointments";
+import { RecentPatients } from "./RecentPatients";
 
 // React Icons (FontAwesome set as example)
 import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar } from "react-icons/fa";
 
-export default function App() {
+export default function DietitianDash() {
   return (
     <div className="min-h-screen bg-background flex">
       {/* Sidebar */}
@@ -16,7 +17,7 @@ export default function App() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <DashboardHeader />
+        <DashboardUser />
 
         {/* Main Dashboard Content */}
         <main className="flex-1 p-6 space-y-6">

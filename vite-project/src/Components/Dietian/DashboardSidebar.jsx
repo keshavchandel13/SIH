@@ -1,3 +1,4 @@
+import React from "react";
 import { 
   FaHome, 
   FaUsers, 
@@ -7,7 +8,6 @@ import {
   FaCog, 
   FaLeaf
 } from "react-icons/fa";
-import { cn } from "./ui/utils";
 
 const navigation = [
   { name: "Home", href: "#", icon: FaHome, current: true },
@@ -38,7 +38,7 @@ export function DashboardSidebar() {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className={cn(
+                  className={(
                     "flex items-center gap-3 px-3 py-2 rounded-lg transition-colors",
                     item.current
                       ? "bg-sidebar-accent text-sidebar-accent-foreground"
