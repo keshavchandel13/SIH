@@ -1,9 +1,9 @@
 import React from 'react'
-
+import UserDash from '../Components/User/UserDash'
 export default function User() {
   return (
     <div>
-        user interface
+        <UserDash/>
       
     </div>
   )

@@ -1,5 +1,6 @@
+import React from "react";
 import { FaBell, FaSearch, FaChevronDown } from "react-icons/fa";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+// import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function DashboardHeader() {
   const currentDate = new Date().toLocaleDateString("en-US", {

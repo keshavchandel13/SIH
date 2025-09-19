@@ -7,6 +7,7 @@ export default function Signup() {
     name: "",
     email: "",
     password: "",
+    role: "", // role field already in state
   });
 
   const handleSignup = async (e) => {
@@ -27,7 +28,7 @@ export default function Signup() {
       {/* 🌿 Ayurved Logo */}
       <div className="flex flex-col items-center mb-8">
         <img
-          src="/finlog.jpg" // <-- replace with your actual logo path in public/
+          src="/finlog.jpg"
           alt="Ayurved Logo"
           className="h-16 w-16 mb-3"
         />
@@ -43,6 +44,8 @@ export default function Signup() {
           Create an Account
         </h2>
         <form onSubmit={handleSignup} className="space-y-5">
+          
+          {/* Full Name */}
           <input
             type="text"
             placeholder="Enter your full name"
@@ -54,6 +57,7 @@ export default function Signup() {
             required
           />
 
+          {/* Email */}
           <input
             type="email"
             placeholder="Enter your email"
@@ -65,6 +69,23 @@ export default function Signup() {
             required
           />
 
+          {/* Role Selection */}
+          <select
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            value={signupData.role}
+            onChange={(e) =>
+              setSignupData({ ...signupData, role: e.target.value })
+            }
+            required
+          >
+            <option value="" disabled>
+              Select your role
+            </option>
+            <option value="Doctor">Doctor</option>
+            <option value="Patient">Patient</option>
+          </select>
+
+          {/* Password */}
           <div className="relative">
             <input
               type={showPassword ? "text" : "password"}
@@ -85,6 +106,7 @@ export default function Signup() {
             </button>
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-emerald-500 to-teal-500 text-white p-3 rounded-lg shadow-lg hover:from-emerald-600 hover:to-teal-600 transition"

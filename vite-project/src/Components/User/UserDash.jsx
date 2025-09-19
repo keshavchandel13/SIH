@@ -1,8 +1,9 @@
+import React from "react";
 import { useState } from "react";
 import { FaPlus, FaUtensils, FaHeartbeat, FaCommentDots, FaChartLine } from "react-icons/fa";
 import { TodayMealsPanel } from "./TodayMealsPanel";
 import { ProgressWidget } from "./ProgressWidget";
-import { MealDetailModal } from "./MealDetailModal";
+// import { MealDetailModal } from "./MealDetailModal";
 
 const todaysMeals = [
   { id: "1", name: "Golden Turmeric Porridge", time: "8:00 AM", isUpcoming: true, isLogged: false },
@@ -89,11 +90,13 @@ export default function UserDashboard() {
       </nav>
 
       {/* Meal Detail Modal */}
-      <MealDetailModal
+      {/* <MealDetailModal
         isOpen={!!selectedMeal}
         onClose={() => setSelectedMeal(null)}
         meal={selectedMeal ? todaysMeals.find((m) => m.id === selectedMeal) : null}
       />
+        meal={selectedMealData}
+      /> */}
     </div>
   );
-}
+
