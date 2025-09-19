@@ -3,6 +3,7 @@ import DashboardUser from "./DashboardUser";
 import { DashboardSidebar } from "./DashboardSidebar";    
 import StatCard from './StatCard'
 import { UpcomingAppointments } from "./UpcomingAppointments";
+import PendingAppointments from "./PendingAppointments";
 
 
 // React Icons
@@ -73,7 +74,7 @@ export default function DietitianDash() {
               <UpcomingAppointments />
             </div>
             <div className="bg-white rounded-2xl shadow-lg p-6 overflow-auto">
-              <UpcomingAppointments/>
+              <PendingAppointments />
             </div>
           </div>
         </main>
