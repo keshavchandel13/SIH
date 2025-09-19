@@ -8,11 +8,15 @@ function App() {
   return (
     <>
     {/* <Login/> */}
+
+    <Signup/>
+
     {/* <Signup/> */}
     {/* <Dietian/> */}
     <AppRoutes/>
   
     </>
+
   )
 }
 
