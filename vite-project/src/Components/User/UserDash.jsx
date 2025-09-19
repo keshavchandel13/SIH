@@ -1,41 +1,113 @@
 import React from "react";
 import { useState } from "react";
-import { FaPlus, FaUtensils, FaHeartbeat, FaCommentDots, FaChartLine } from "react-icons/fa";
+import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar, FaChartLine, FaClock } from "react-icons/fa";
+import { DashboardHeader } from "./DashboardHeader";
+import { DashboardSidebar } from "./DashboardSidebar";
+import { StatCard } from "./StatCard";
+import { UpcomingAppointments } from "./UpcomingAppointments";
+import { RecentPatients } from "./RecentPatients";
 import { TodayMealsPanel } from "./TodayMealsPanel";
 import { ProgressWidget } from "./ProgressWidget";
 // import { MealDetailModal } from "./MealDetailModal";
 
+// Mock data
 const todaysMeals = [
-  { id: "1", name: "Golden Turmeric Porridge", time: "8:00 AM", isUpcoming: true, isLogged: false },
-  { id: "2", name: "Mung Dal Khichdi", time: "1:00 PM", isUpcoming: false, isLogged: false },
-  { id: "3", name: "Spiced Vegetable Curry", time: "7:00 PM", isUpcoming: false, isLogged: false }
+  {
+    id: "1",
+    name: "Golden Turmeric Porridge",
+    time: "8:00 AM",
+    isUpcoming: false,
+    isLogged: true,
+    description: "Warm, nourishing breakfast to start your day"
+  },
+  {
+    id: "2",
+    name: "Mung Dal Khichdi",
+    time: "1:00 PM",
+    isUpcoming: true,
+    isLogged: false,
+    description: "Easy to digest, balances all doshas"
+  },
+  {
+    id: "3",
+    name: "Spiced Vegetable Curry",
+    time: "7:00 PM",
+    isUpcoming: false,
+    isLogged: false,
+    description: "Seasonal vegetables with warming spices"
+  },
+  {
+    id: "4",
+    name: "Herbal Tea & Almonds",
+    time: "3:30 PM",
+    isUpcoming: false,
+    isLogged: false,
+    description: "Afternoon snack for sustained energy"
+  }
 ];
 
-const dietitianInfo = {
-  name: "Dr. Sharma",
-  image: "https://images.unsplash.com/photo-1494790108755-2616b612b47c",
-  unreadMessages: 2
+const mealDetails = {
+  "2": {
+    name: "Mung Dal Khichdi",
+    time: "1:00 PM",
+    description:
+      "A complete, easy-to-digest meal that balances all three doshas. This traditional Ayurvedic dish is perfect for cleansing and nourishing the body.",
+    prepTime: "30 mins",
+    servings: 2,
+    doshaBalance: "Tridoshic (All Doshas)",
+    ingredients: [
+      "1/2 cup split mung dal (yellow)",
+      "1/4 cup basmati rice",
+      "1 tsp ghee",
+      "1/2 tsp cumin seeds",
+      "1/4 tsp turmeric powder",
+      "1 inch fresh ginger, minced",
+      "2 cups water",
+      "Salt to taste",
+      "Fresh cilantro for garnish"
+    ],
+    instructions: [
+      "Wash and soak mung dal and rice together for 15 minutes.",
+      "Heat ghee in a pot over medium heat. Add cumin seeds and let them splutter.",
+      "Add minced ginger and sauté for 30 seconds until fragrant.",
+      "Drain and add the soaked dal and rice. Stir gently for 2 minutes.",
+      "Add turmeric powder and salt. Mix well.",
+      "Add water and bring to a boil. Reduce heat and simmer covered for 20-25 minutes.",
+      "Stir occasionally until the mixture becomes soft and porridge-like.",
+      "Garnish with fresh cilantro and serve warm."
+    ]
+  }
 };
 
-export default function UserDashboard() {
+export default function App() {
   const [selectedMeal, setSelectedMeal] = useState(null);
 
-  const handleMealClick = (mealId) => setSelectedMeal(mealId);
+  const handleMealClick = (mealId) => {
+    setSelectedMeal(mealId);
+  };
+
+  const selectedMealData = selectedMeal ? mealDetails[selectedMeal] : null;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-background flex">
+      {/* Sidebar */}
+      <DashboardSidebar />
+
       {/* Main Content */}
-      <div className="flex-1 p-4 md:p-6 space-y-6">
+      <div className="flex-1 flex flex-col">
         {/* Header */}
-        <div>
-          <h1 className="text-2xl md:text-3xl font-bold">Good Morning, {dietitianInfo.name.split(" ")[0]}!</h1>
-          <p className="text-gray-500">Here's your wellness plan for today.</p>
-        </div>
+        <DashboardHeader />
 
-        {/* Today's Plan Widget */}
-        <TodayMealsPanel meals={todaysMeals} onMealClick={handleMealClick} />
+        {/* Main Dashboard Content */}
+        <main className="flex-1 p-6 space-y-6">
+          {/* Welcome Section */}
+          <div>
+            <h1 className="text-3xl font-bold mb-2">Welcome back, Shivam Sharma!</h1>
+            <p className="text-muted-foreground">
+              Here's what's happening with your wellness practice today.
+            </p>
+          </div>
 
-<<<<<<< HEAD
           {/* Statistics Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatCard
@@ -71,70 +143,47 @@ export default function UserDashboard() {
               iconColor="text-green-600"
             />
           </div>
-=======
-        {/* Quick Action Buttons */}
-        <div className="flex gap-4 mt-4 md:mt-6">
-          <button className="flex-1 flex items-center justify-center gap-2 py-3 bg-primary text-white rounded-lg shadow-md hover:bg-primary-dark">
-            <FaUtensils /> Log Meal
-          </button>
-          <button className="flex-1 flex items-center justify-center gap-2 py-3 bg-secondary text-white rounded-lg shadow-md hover:bg-secondary-dark">
-            <FaHeartbeat /> Log Symptom
-          </button>
-        </div>
->>>>>>> fbc084f034630eb39a40dc2a89966f27ed260cf6
 
-        {/* Progress Snapshot */}
-        <ProgressWidget />
-
-        {/* Dietitian Contact Widget */}
-        <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm">
-          <div className="flex items-center gap-4">
-            <img
-              src={dietitianInfo.image}
-              alt={dietitianInfo.name}
-              className="w-12 h-12 rounded-full object-cover"
+          {/* Additional Stats Row */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <StatCard
+              title="Average Compliance"
+              value="84%"
+              change="+3% from last month"
+              changeType="positive"
+              icon={FaChartLine}
+              iconColor="text-primary"
             />
-            <div>
-              <p className="font-medium">{dietitianInfo.name}</p>
-              {dietitianInfo.unreadMessages > 0 && (
-                <span className="text-xs text-red-500">{dietitianInfo.unreadMessages} unread messages</span>
-              )}
+            <StatCard
+              title="Response Time"
+              value="12 min"
+              change="2 min faster"
+              changeType="positive"
+              icon={FaClock}
+              iconColor="text-accent"
+            />
+            <div className="md:col-span-1">
+              <ProgressWidget />
             </div>
           </div>
-          <button className="py-2 px-4 bg-primary text-white rounded-lg hover:bg-primary-dark flex items-center gap-2">
-            <FaCommentDots /> Chat
-          </button>
-        </div>
-      </div>
 
-      {/* Bottom Navigation for mobile */}
-      <nav className="fixed bottom-0 left-0 right-0 md:hidden bg-white border-t flex justify-around py-2">
-        <button className="flex flex-col items-center text-primary">
-          <FaChartLine className="w-5 h-5" />
-          <span className="text-xs">Dashboard</span>
-        </button>
-        <button className="flex flex-col items-center text-gray-500">
-          <FaUtensils className="w-5 h-5" />
-          <span className="text-xs">Full Plan</span>
-        </button>
-        <button className="flex flex-col items-center text-gray-500">
-          <FaCommentDots className="w-5 h-5" />
-          <span className="text-xs">Chat</span>
-        </button>
-        <button className="flex flex-col items-center text-gray-500">
-          <FaUser className="w-5 h-5" />
-          <span className="text-xs">Profile</span>
-        </button>
-      </nav>
+          {/* Bottom Panels */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-1">
+              <TodayMealsPanel meals={todaysMeals} onMealClick={handleMealClick} />
+            </div>
+            <UpcomingAppointments />
+            <RecentPatients />
+          </div>
+        </main>
+      </div>
 
       {/* Meal Detail Modal */}
       {/* <MealDetailModal
         isOpen={!!selectedMeal}
         onClose={() => setSelectedMeal(null)}
-        meal={selectedMeal ? todaysMeals.find((m) => m.id === selectedMeal) : null}
-      />
         meal={selectedMealData}
       /> */}
     </div>
   );
-
+}
