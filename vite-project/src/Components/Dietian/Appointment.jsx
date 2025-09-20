@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAppointments } from "../../api/Book.js";
+import { getAppointments, updateAppointment } from "../../api/Book.js";
 import { DashboardSidebar } from "./DashboardSidebar.jsx";
 import DashboardUser from "./DashboardUser.jsx";
 
@@ -13,22 +13,35 @@ export default function DoctorAppointments() {
   const doctorName = user.name;
 
   useEffect(() => {
-    const fetchAppointments = async () => {
-      try {
-        const allAppointments = await getAppointments();
-        // Filter only appointments assigned to this doctor
-        const myAppointments = allAppointments.filter(
-          (a) => a.dietician === doctorName
-        );
-        setAppointments(myAppointments);
-      } catch (err) {
-        setError("Failed to load appointments.");
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAppointments();
+    fetchMyAppointments();
   }, [doctorName]);
+
+  const fetchMyAppointments = async () => {
+    setLoading(true);
+    try {
+      const allAppointments = await getAppointments();
+      const myAppointments = allAppointments.filter(
+        (a) => a.dietician === doctorName
+      );
+      setAppointments(myAppointments);
+    } catch (err) {
+      setError("Failed to load appointments.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleStatusUpdate = async (id, status) => {
+    try {
+      await updateAppointment(id, { status });
+      // Update local state without refetching
+      setAppointments((prev) =>
+        prev.map((a) => (a._id === id ? { ...a, status } : a))
+      );
+    } catch (err) {
+      alert("Failed to update status.");
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-emerald-50">
@@ -38,7 +51,7 @@ export default function DoctorAppointments() {
 
         <div className="p-6">
           <h2 className="text-2xl font-bold mb-4 text-emerald-700">
-            My Appointments
+            Appointments
           </h2>
 
           {loading ? (
@@ -57,16 +70,40 @@ export default function DoctorAppointments() {
                     <th className="px-4 py-2 text-left">Problem</th>
                     <th className="px-4 py-2 text-left">Date</th>
                     <th className="px-4 py-2 text-left">Status</th>
+                    <th className="px-4 py-2 text-left">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {appointments.map((appt) => (
-                    <tr key={appt._id} className="border-b border-gray-200 hover:bg-gray-50">
+                    <tr
+                      key={appt._id}
+                      className="border-b border-gray-200 hover:bg-gray-50"
+                    >
                       <td className="px-4 py-2">{appt.name}</td>
                       <td className="px-4 py-2">{appt.age}</td>
                       <td className="px-4 py-2">{appt.problem}</td>
-                      <td className="px-4 py-2">{new Date(appt.date).toLocaleDateString()}</td>
+                      <td className="px-4 py-2">
+                        {new Date(appt.date).toLocaleDateString()}
+                      </td>
                       <td className="px-4 py-2">{appt.status}</td>
+                      <td className="px-4 py-2 flex gap-2">
+                        {appt.status !== "Confirmed" && (
+                          <button
+                            onClick={() => handleStatusUpdate(appt._id, "Confirmed")}
+                            className="px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
+                          >
+                            Confirm
+                          </button>
+                        )}
+                        {appt.status !== "Cancelled" && (
+                          <button
+                            onClick={() => handleStatusUpdate(appt._id, "Cancelled")}
+                            className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+                          >
+                            Cancel
+                          </button>
+                        )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>

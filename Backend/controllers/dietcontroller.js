@@ -1,7 +1,6 @@
 const axios = require("axios");
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = "gemini-2.5-flash";
+const OPENAI_API_KEY = "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"; // set your OpenAI key in environment
 
 exports.recommendDiet = async (req, res) => {
   const { name, age, gender, dosha, goal, allergies } = req.body;
@@ -34,12 +33,24 @@ Provide a daily diet plan in JSON:
 
   try {
     const response = await axios.post(
-      `https://gemini.generativeai.googleapis.com/v1alpha/models/${GEMINI_MODEL}:generateContent`,
-      { contents: [{ text: prompt }], temperature: 0.8, maxOutputTokens: 400 },
-      { headers: { "Authorization": `Bearer ${GEMINI_API_KEY}`, "Content-Type": "application/json" } }
+      "https://api.openai.com/v1/chat/completions",
+      {
+        model: "gpt-3.5-turbo",
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.8,
+        max_tokens: 400
+      },
+      {
+        headers: {
+          "Authorization": `Bearer ${OPENAI_API_KEY}`,
+          "Content-Type": "application/json"
+        }
+      }
     );
 
-    let resultText = response.data?.candidates?.[0]?.content?.[0]?.text || "";
+    let resultText = response.data?.choices?.[0]?.message?.content || "";
+    console.log("Raw model output:", resultText);
+
     let result;
     try {
       result = JSON.parse(resultText);
