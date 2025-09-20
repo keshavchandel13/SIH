@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; // 👈 import Link
+import { Link, useLocation } from "react-router-dom";
 import { 
   FaHome, 
   FaCalendarAlt, 
@@ -31,21 +31,23 @@ export function DashboardSidebar() {
   ];
 
   return (
-    <div className="w-64 bg-card border-r border-border flex flex-col h-screen">
+    <div className="w-64 flex flex-col h-screen text-white 
+      bg-gradient-to-b from-emerald-600 via-emerald-700 to-emerald-800 shadow-lg">
+      
       {/* Logo */}
       <div className="p-6">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <FaLeaf className="w-5 h-5 text-primary-foreground" />
+          <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+            <FaLeaf className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="font-serif text-lg">AyurDiet</h2>
-            <p className="text-xs text-muted-foreground">Wellness Platform</p>
+            <h2 className="font-serif text-lg font-bold">AyurDiet</h2>
+            <p className="text-xs text-white/70">Wellness Platform</p>
           </div>
         </div>
       </div>
 
-      <hr className="border-border" />
+      <hr className="border-emerald-500/40" />
 
       {/* Main Navigation */}
       <nav className="flex-1 p-4 space-y-1">
@@ -55,8 +57,8 @@ export function DashboardSidebar() {
             key={index}
             className={`w-full flex items-center justify-start h-10 px-3 rounded-md transition ${
               location.pathname === item.path
-                ? "bg-secondary text-secondary-foreground"
-                : "hover:bg-muted text-foreground"
+                ? "bg-white/20 border-l-4 border-yellow-300 text-yellow-200 shadow-md"
+                : "hover:bg-white/10 text-white/80 hover:text-yellow-100"
             }`}
           >
             <item.icon className="w-4 h-4 mr-3" />
@@ -67,20 +69,20 @@ export function DashboardSidebar() {
               </span>
             )}
             {item.count && (
-              <span className="text-xs text-muted-foreground">{item.count}</span>
+              <span className="text-xs text-white/60">{item.count}</span>
             )}
           </Link>
         ))}
       </nav>
 
       {/* Bottom Section */}
-      <div className="p-4 border-t">
+      <div className="p-4 border-t border-emerald-500/40">
         <div className="space-y-1">
           {bottomNavItems.map((item, index) => (
             <Link
               to={item.path}
               key={index}
-              className="w-full flex items-center justify-start h-10 px-3 rounded-md hover:bg-muted transition"
+              className="w-full flex items-center justify-start h-10 px-3 rounded-md hover:bg-white/10 transition text-white/80 hover:text-yellow-100"
             >
               <item.icon className="w-4 h-4 mr-3" />
               {item.label}
