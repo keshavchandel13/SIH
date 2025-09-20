@@ -33,8 +33,7 @@ export function DashboardSidebar() {
   ];
 
   return (
-    <div className="w-64 flex flex-col h-screen text-white 
-      bg-gradient-to-b from-emerald-600 via-emerald-700 to-emerald-800 shadow-lg">
+    <div className="w-64 flex flex-col h-screen text-white bg-gradient-to-b from-emerald-600 via-emerald-700 to-emerald-800 shadow-lg sticky top-0">
       
       {/* Logo */}
       <div className="p-6">
