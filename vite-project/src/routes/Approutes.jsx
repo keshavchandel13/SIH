@@ -7,6 +7,7 @@ import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import User from "../Pages/User";
 import BookAppointment from "../Components/User/BookAppointment";
+import Appointment from "../Components/Dietian/Appointment";
 
 export default function AppRoutes() {
   return (
@@ -25,6 +26,7 @@ export default function AppRoutes() {
 
         {/* User routes */}
         <Route path="/book" element={<BookAppointment />} />
+          <Route path="/appointment" element={<Appointment />} />
         
 
         {/* Fallback route */}

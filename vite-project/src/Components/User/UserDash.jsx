@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar, FaChartLine, FaClock } from "react-icons/fa";
-import { DashboardHeader } from "./DashboardHeader";
-import { DashboardSidebar } from "./DashboardSidebar";
+// import { DashboardHeader } from "./DashboardHeader";
+// import { DashboardSidebar } from "./DashboardSidebar";
 import { StatCard } from "./StatCard";
 import { UpcomingAppointments } from "./UpcomingAppointments";
 import { RecentPatients } from "./RecentPatients";
@@ -91,12 +91,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-background flex">
       {/* Sidebar */}
-      <DashboardSidebar />
+      {/* <DashboardSidebar /> */}
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <DashboardHeader />
+        {/* <DashboardHeader /> */}
 
         {/* Main Dashboard Content */}
         <main className="flex-1 p-6 space-y-6">
