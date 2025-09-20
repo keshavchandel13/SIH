@@ -1,6 +1,5 @@
 const axios = require("axios");
 
-const OPENAI_API_KEY = "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"; // set your OpenAI key in environment
 
 exports.recommendDiet = async (req, res) => {
   const { name, age, gender, dosha, goal, allergies } = req.body;
