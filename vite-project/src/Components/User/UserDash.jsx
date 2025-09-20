@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { FaAppleAlt, FaCalendarCheck, FaFistRaised, FaHeartbeat, FaRegClock } from "react-icons/fa";
 import { HiX } from 'react-icons/hi';
@@ -5,6 +6,13 @@ import { HiX } from 'react-icons/hi';
 // Child Components (Assuming these exist)
 import { DashboardSidebar } from "./DashboardSidebar";
 import { DashboardHeader } from "./DashboardHeader";
+
+import React from "react";
+import { useState } from "react";
+import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar, FaChartLine, FaClock } from "react-icons/fa";
+// import { DashboardHeader } from "./DashboardHeader";
+// import { DashboardSidebar } from "./DashboardSidebar";
+
 import { StatCard } from "./StatCard";
 
 // --- MOCK DATA ---
@@ -84,11 +92,26 @@ export default function UserDashboard() {
   const selectedMealData = selectedMeal ? mealDetails[selectedMeal] : null;
 
   return (
+
     <div className="min-h-screen bg-gray-50 flex">
       <DashboardSidebar />
       <div className="flex-1 flex flex-col">
         <DashboardHeader />
         <main className="flex-1 p-6 space-y-8">
+=======
+    <div className="min-h-screen bg-background flex">
+      {/* Sidebar */}
+      {/* <DashboardSidebar /> */}
+
+      {/* Main Content */}
+      <div className="flex-1 flex flex-col">
+        {/* Header */}
+        {/* <DashboardHeader /> */}
+
+        {/* Main Dashboard Content */}
+        <main className="flex-1 p-6 space-y-6">
+          {/* Welcome Section */}
+
           <div>
             <h1 className="text-3xl md:text-4xl font-bold mb-2 text-gray-800">Welcome back, Priya!</h1>
             <p className="text-gray-600 text-lg">Your wellness journey for today looks great. Stay consistent!</p>

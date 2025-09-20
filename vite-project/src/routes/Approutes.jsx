@@ -6,8 +6,14 @@ import Dietitian from "../Pages/Dietitian";
 import Login from "../Pages/Login";
 import Signup from "../Pages/Signup";
 import User from "../Pages/User";
+
 import SessionPage from "../Pages/SessionPage";
 import DietitianProfile from "../Pages/DietitianProfile";
+
+import BookAppointment from "../Components/User/BookAppointment";
+import Appointment from "../Components/Dietian/Appointment";
+import DietRecommendationPage from "../Pages/DieteDecomndetaionPage";
+
 
 export default function AppRoutes() {
   return (
@@ -29,6 +35,13 @@ export default function AppRoutes() {
 
         {/* Video session route */}
         <Route path="/session/:sessionId" element={<SessionPage />} />
+
+        {/* User routes */}
+        <Route path="/book" element={<BookAppointment />} />
+          <Route path="/appointment" element={<Appointment />} />
+          <Route path="/aidiet" element={<DietRecommendationPage />} />
+        
+
 
         {/* Fallback route */}
         <Route path="*" element={<h1 className="text-center mt-10">404 Page Not Found</h1>} />

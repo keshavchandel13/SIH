@@ -1,12 +1,6 @@
 import React from "react";
 import { 
-  FaHome, 
-  FaUsers, 
-  FaFileAlt, 
-  FaChartBar, 
-  FaCalendarAlt, 
-  FaCog, 
-  FaLeaf
+  FaHome, FaUsers, FaFileAlt, FaChartBar, FaCalendarAlt, FaCog, FaLeaf 
 } from "react-icons/fa";
 
 const navigation = [
@@ -14,11 +8,15 @@ const navigation = [
   { name: "Patients", href: "#", icon: FaUsers, current: false },
   { name: "Diet Plans", href: "#", icon: FaFileAlt, current: false },
   { name: "Nutrient Analysis", href: "#", icon: FaChartBar, current: false },
-  { name: "Appointments", href: "#", icon: FaCalendarAlt, current: false },
+  { name: "Appointments", href: "/appointment", icon: FaCalendarAlt, current: false },
   { name: "Settings", href: "#", icon: FaCog, current: false },
 ];
 
 export function DashboardSidebar() {
+  const user = JSON.parse(localStorage.getItem("user")) || {};
+  const userName = user.name || "User";
+  const userRole = user.role || "Role";
+
   return (
     <div className="flex flex-col w-64 min-h-screen bg-gradient-to-b from-emerald-600 via-emerald-700 to-emerald-800 text-white shadow-xl">
       
@@ -58,13 +56,13 @@ export function DashboardSidebar() {
       <div className="p-4 border-t border-emerald-500/40">
         <div className="flex items-center gap-3">
           <img
-            src="https://instagram.fdel29-1.fna.fbcdn.net/v/t51.2885-19/506410103_17940634722009008_2512773763235808018_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fdel29-1.fna.fbcdn.net&_nc_cat=108&_nc_oc=Q6cZ2QEEaLgpdMoAVUeJZxdd8LuYhHnKLddd2UtPAsVDLaGPTyKp7XuNHND_pu3iEJRocb0&_nc_ohc=VJRQWqVnF4EQ7kNvwFte6W4&_nc_gid=Qx-m010iMT_ddu9WcDljdA&edm=ALGbJPMBAAAA&ccb=7-5&oh=00_AfbyRtmJ0sTCgpEucpSG3DiHMVzbRSjVyRjqSddfGP0ruQ&oe=68D399F1&_nc_sid=7d3ac5"
-            alt="User "
+            src={`https://i.pravatar.cc/150?u=${userName}`} // dynamic placeholder
+            alt={userName}
             className="w-10 h-10 rounded-full border-2 border-yellow-300"
           />
           <div>
-            <p className="text-sm font-semibold">Dr. Shivani</p>
-            <p className="text-xs text-white/70">Dietitian</p>
+            <p className="text-sm font-semibold">{userName}</p>
+            <p className="text-xs text-white/70">{userRole}</p>
           </div>
         </div>
       </div>
