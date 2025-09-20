@@ -13,12 +13,14 @@ import {
   FaLeaf 
 } from "react-icons/fa";
 
+
 export function DashboardSidebar() {
   const location = useLocation();
 
   const mainNavItems = [
     { icon: FaHome, label: "Dashboard", path: "/dashboard" },
     { icon: FaCreditCard, label: "Dietitian", path: "/book" },
+    { icon: FaCreditCard, label: "AI Diet", path: "/aidiet" },
     { icon: FaCalendarAlt, label: "Diet Schedule", path: "/schedule", badge: "3" },
     { icon: FaComments, label: "Messages", path: "/messages", badge: "5" },
     { icon: FaVideo, label: "Sessions", path: "/sessions", count: "12" },
