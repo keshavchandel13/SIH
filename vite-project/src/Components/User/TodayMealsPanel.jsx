@@ -1,6 +1,4 @@
-import React from "react";
 import { FaCalendarAlt } from "react-icons/fa";
-// import { MealCard } from "./MealCard";
 
 export function TodayMealsPanel({ meals, onMealClick }) {
   const currentDate = new Date().toLocaleDateString("en-US", {

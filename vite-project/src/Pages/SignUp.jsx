@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { signupUser } from "../api/auth"; // 👈 import API
 
 export default function Signup() {

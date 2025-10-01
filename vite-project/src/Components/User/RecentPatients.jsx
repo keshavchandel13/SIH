@@ -1,6 +1,4 @@
-import React from "react";
 import { FaArrowUp, FaArrowDown, FaComment } from "react-icons/fa";
-// import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const mockPatients = [
   {

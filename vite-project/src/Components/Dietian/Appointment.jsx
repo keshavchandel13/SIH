@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAppointments } from "../../api/Book.js";
-import { DashboardSidebar } from "./DashboardSidebar.jsx";
-import DashboardUser from "./DashboardUser.jsx";
+import DashboardSidebar from "../Common/DashboardSidebar.jsx"
+import DashboardHeader from "../Common/DashboardHeader.jsx";
 
 export default function DoctorAppointments() {
   const [appointments, setAppointments] = useState([]);
@@ -34,7 +34,7 @@ export default function DoctorAppointments() {
     <div className="flex min-h-screen bg-emerald-50">
       <DashboardSidebar />
       <div className="flex-1 flex flex-col">
-        <DashboardUser />
+        <DashboardHeader />
 
         <div className="p-6">
           <h2 className="text-2xl font-bold mb-4 text-emerald-700">

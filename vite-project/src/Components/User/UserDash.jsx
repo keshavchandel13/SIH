@@ -1,14 +1,11 @@
-import React from "react";
 import { useState } from "react";
 import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar, FaChartLine, FaClock } from "react-icons/fa";
-// import { DashboardHeader } from "./DashboardHeader";
-// import { DashboardSidebar } from "./DashboardSidebar";
-import { StatCard } from "./StatCard";
+import StatCard from "../Common/StatCard.jsx";
 import { UpcomingAppointments } from "./UpcomingAppointments";
 import { RecentPatients } from "./RecentPatients";
 import { TodayMealsPanel } from "./TodayMealsPanel";
 import { ProgressWidget } from "./ProgressWidget";
-// import { MealDetailModal } from "./MealDetailModal";
+import DashboarLayout from "../User/DashboardLayout";
 
 // Mock data
 const todaysMeals = [
@@ -79,7 +76,7 @@ const mealDetails = {
   }
 };
 
-export default function App() {
+export default function UserDash() {
   const [selectedMeal, setSelectedMeal] = useState(null);
 
   const handleMealClick = (mealId) => {
@@ -89,14 +86,8 @@ export default function App() {
   const selectedMealData = selectedMeal ? mealDetails[selectedMeal] : null;
 
   return (
-    <div className="min-h-screen bg-background flex">
-      {/* Sidebar */}
-      {/* <DashboardSidebar /> */}
-
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
-        {/* Header */}
-        {/* <DashboardHeader /> */}
+    <div className="min-h-screen bg-background flex-1">
+      <DashboarLayout/>
 
         {/* Main Dashboard Content */}
         <main className="flex-1 p-6 space-y-6">
@@ -176,14 +167,6 @@ export default function App() {
             <RecentPatients />
           </div>
         </main>
-      </div>
-
-      {/* Meal Detail Modal */}
-      {/* <MealDetailModal
-        isOpen={!!selectedMeal}
-        onClose={() => setSelectedMeal(null)}
-        meal={selectedMealData}
-      /> */}
     </div>
   );
 }

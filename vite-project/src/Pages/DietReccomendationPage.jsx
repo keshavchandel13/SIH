@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { DashboardHeader } from "../Components/User/DashboardHeader";
-import { DashboardSidebar } from "../Components/User/DashboardSidebar";
+import DashboardHeader from "../Components/Common/DashboardHeader.jsx";
+import DashboardSidebar from "../Components/Common/DashboardSidebar.jsx";
 
 // Reuse your form component
 function DietForm({ onSubmit }) {

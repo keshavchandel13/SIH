@@ -1,24 +1,7 @@
-import React from "react";
-import { 
-  FaHome, FaUsers, FaFileAlt, FaChartBar, FaCalendarAlt, FaCog, FaSignOutAlt, FaTimes 
-} from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const navigation = [
-  { name: "Home", href: "#", icon: FaHome, current: true },
-  { name: "Patients", href: "#", icon: FaUsers, current: false },
-  { name: "Diet Plans", href: "#", icon: FaFileAlt, current: false },
-  { name: "Nutrient Analysis", href: "#", icon: FaChartBar, current: false },
-  { name: "Appointments", href: "/appointment", icon: FaCalendarAlt, current: false },
-  { name: "Settings", href: "#", icon: FaCog, current: false },
-];
-
-const bottomNavItems = [
-  { icon: FaCog, label: "Settings", path: "/settings" },
-  { icon: FaSignOutAlt, label: "Sign Out", path: "/logout" }
-];
-
-export function DashboardSidebar({ isOpen, onClose }) {
+export default function DashboardSidebar({ isOpen, onClose, mainNav, bottomNav }) {
   const user = JSON.parse(localStorage.getItem("user")) || {};
   const userName = user.name || "User";
   const userRole = user.role || "Role";
@@ -37,7 +20,7 @@ export function DashboardSidebar({ isOpen, onClose }) {
       {/* Navigation */}
       <nav className="flex-1 p-4 overflow-y-auto mt-10">
         <ul className="space-y-2">
-          {navigation.map((item) => {
+          {mainNav.map((item) => {
             const Icon = item.icon;
             return (
               <li key={item.name}>
@@ -76,7 +59,7 @@ export function DashboardSidebar({ isOpen, onClose }) {
       {/* Bottom Section */}
       <div className="pt-0 mb-5 pl-1.5 border-emerald-500/40">
         <div className="space-y-1">
-          {bottomNavItems.map((item, index) => (
+          {bottomNav.map((item, index) => (
             <Link
               to={item.path}
               key={index}

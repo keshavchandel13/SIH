@@ -1,6 +1,4 @@
-import React from "react";
 import { FaClock, FaVideo, FaComment } from "react-icons/fa";
-// import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 const mockAppointments = [
   {

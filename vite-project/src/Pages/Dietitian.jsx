@@ -1,4 +1,3 @@
-import React from 'react'
 import DietitianDash from '../Components/Dietian/DietitianDash'
 
 export default function Dietitian() {

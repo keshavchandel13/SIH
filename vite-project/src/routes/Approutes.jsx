@@ -8,7 +8,7 @@ import Signup from "../Pages/Signup";
 import User from "../Pages/User";
 import BookAppointment from "../Components/User/BookAppointment";
 import Appointment from "../Components/Dietian/Appointment";
-import DietRecommendationPage from "../Pages/DieteDecomndetaionPage";
+import DietRecommendationPage from "../Pages/DietReccomendationPage.jsx";
 
 export default function AppRoutes() {
   return (

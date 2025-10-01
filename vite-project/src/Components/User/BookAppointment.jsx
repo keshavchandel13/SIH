@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { createAppointment } from "../../api/Book.js";
 import { getDOctor } from "../../api/User.js";
-import { DashboardSidebar } from "./DashboardSidebar.jsx";
-import { DashboardHeader } from "./DashboardHeader.jsx";
+import DashboardLayout from "./DashboardLayout.jsx";
 
 export default function BookAppointment() {
   const [formData, setFormData] = useState({
@@ -65,9 +64,7 @@ export default function BookAppointment() {
 
   return (
     <div className="min-h-screen flex bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 p-6">
-      <DashboardSidebar />
-      <div className="flex-1">
-        <DashboardHeader />
+      <DashboardLayout/>
         <div className="flex justify-center mt-10">
           <div className="w-full max-w-lg bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-emerald-100">
 
@@ -208,7 +205,6 @@ export default function BookAppointment() {
             )}
           </div>
         </div>
-      </div>
     </div>
   );
 }

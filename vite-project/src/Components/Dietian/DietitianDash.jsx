@@ -1,30 +1,14 @@
-import React, { useState } from "react";
-import DashboardUser from "./DashboardUser";
-import { DashboardSidebar } from "./DashboardSidebar";
-import StatCard from './StatCard';
+import DashboarLayout from "./DashboardLayout.jsx";
+import StatCard from "../Common/StatCard.jsx";
 import { UpcomingAppointments } from "./UpcomingAppointments";
 import { FaUsers, FaFileAlt, FaCalendarAlt, FaChartBar } from "react-icons/fa";
 
-export default function DietitianDash() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+export default function DietitianDash() {   
 
   return (
     <div className="relative min-h-screen bg-gray-50">
-      <DashboardUser onMenuClick={toggleSidebar} /> 
-
-      <DashboardSidebar isOpen={isSidebarOpen} onClose={toggleSidebar} />
-
-      {isSidebarOpen && (
-        <div 
-          onClick={toggleSidebar}
-          className="fixed inset-0 bg-black/70 z-40"
-        ></div>
-      )}
-
+      <DashboarLayout/>
+      
       {/* Main Dashboard */}
       <main className="p-6 space-y-8">
         {/* Welcome Section */}

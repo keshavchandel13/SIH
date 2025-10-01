@@ -1,4 +1,3 @@
-import React from "react";
 import { FaClock, FaUsers, FaHourglassHalf, FaTimes } from "react-icons/fa";
 
 export function MealDetailModal({ isOpen, onClose, meal }) {

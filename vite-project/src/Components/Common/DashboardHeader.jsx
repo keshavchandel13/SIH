@@ -1,12 +1,8 @@
-import React from "react";
 import { FaSearch, FaBell, FaCog, FaBars } from "react-icons/fa";
-import Logo from "../Common/Logo.jsx";
+import Logo from "./Logo.jsx";
 
-export default function DashboardUser({ onMenuClick }) {
-  const user = JSON.parse(localStorage.getItem("user")) || {};
-  const userName = user.name || "User";
-  const userRole = user.role || "Role";
-
+export default function DashboardHeader({ onMenuClick }) {
+  
   return (
     <header className="flex items-center justify-between px-2 py-3 bg-emerald-700 backdrop-blur-md z-50 relative">
       <button onClick={onMenuClick} className="pl-2 pr-5">
