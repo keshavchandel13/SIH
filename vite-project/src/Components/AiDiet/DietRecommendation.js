@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function DietRecommendation({ data }) {
   if (!data) return null;
 
@@ -12,5 +10,6 @@ export default function DietRecommendation({ data }) {
       <h3>Lifestyle Tips</h3>
       {data.lifestyle_tips && data.lifestyle_tips.map((tip, i) => <li key={i}>{tip}</li>)}
     </div>
+    
   );
 }

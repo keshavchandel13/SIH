@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // 👈 for navigation
 import { loginUser } from "../api/auth";
+import Logo from "../Components/Common/Logo"
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -34,13 +35,10 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 p-6">
-      {/* 🌿 Ayurved Logo */}
-      <div className="flex flex-col items-center mb-8">
-        <img src="/finlog.jpg" alt="Ayurved Logo" className="h-16 w-16 mb-3" />
-        <h1 className="text-3xl font-bold text-emerald-700">AyurDiet</h1>
-        <p className="text-gray-600 text-center mt-1">
-          Ancient Wisdom for Modern Wellness
-        </p>
+      {/* Logo */}
+      <div className="flex items-center justify-center w-full pb-10 scale-125">
+        <Logo/>
+        <span className="text-xl font-bold tracking-wide pl-2 text-emerald-700">AyurDiet</span>
       </div>
 
       {/* Login Card */}

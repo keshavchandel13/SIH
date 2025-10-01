@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { signupUser } from "../api/auth"; // 👈 import API
+import Logo from "../Components/Common/Logo.jsx"
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,18 +26,11 @@ export default function Signup() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 p-6">
       
-      {/* 🌿 Ayurved Logo */}
-      <div className="flex flex-col items-center mb-8">
-        <img
-          src="/finlog.jpg"
-          alt="Ayurved Logo"
-          className="h-16 w-16 mb-3"
-        />
-        <h1 className="text-3xl font-bold text-emerald-700">AyurDiet</h1>
-        <p className="text-gray-600 text-center mt-1">
-          Begin your journey to holistic wellness
-        </p>
-      </div>
+      {/* Logo */}
+      <div className="flex items-center justify-center w-full pb-10 scale-125">
+              <Logo/>
+              <span className="text-xl font-bold tracking-wide pl-2 text-emerald-700">AyurDiet</span>
+            </div>
 
       {/* Signup Card */}
       <div className="w-full max-w-md bg-white/80 backdrop-blur-xl rounded-2xl shadow-2xl p-8">
